@@ -92,30 +92,6 @@
       background: #c4a052;
     }
 
-    /* Slide number */
-    .slide-number {
-      position: fixed;
-      bottom: 20px;
-      right: 30px;
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      z-index: 1000;
-    }
-
-    .slide-number .current {
-      font-size: 48px;
-      font-weight: 900;
-      color: rgba(196, 160, 82, 0.3);
-      font-family: system-ui, sans-serif;
-    }
-
-    .slide-number .total {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.4);
-      font-family: system-ui, sans-serif;
-    }
-
     /* Progress bar */
     .progress-bar {
       position: fixed;
@@ -165,19 +141,12 @@
     </button>
   </div>
 
-  <!-- Slide number -->
-  <div class="slide-number">
-    <span class="current" id="current-num">01</span>
-    <span class="total">/ 15</span>
-  </div>
-
   <script>
     const TOTAL_SLIDES = 15;
     let currentSlide = 1;
 
     const iframe = document.getElementById('slide-container');
     const progress = document.getElementById('progress');
-    const currentNum = document.getElementById('current-num');
     const dotsContainer = document.getElementById('dots');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -200,9 +169,6 @@
 
       // Update progress bar
       progress.style.width = `${(currentSlide / TOTAL_SLIDES) * 100}%`;
-
-      // Update slide number
-      currentNum.textContent = slideNum;
 
       // Update dots
       document.querySelectorAll('.dot').forEach((dot, index) => {
