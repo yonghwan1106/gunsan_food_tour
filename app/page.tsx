@@ -178,8 +178,8 @@ export default function Presentation() {
           animate="center"
           exit="exit"
           transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-          className={`absolute inset-0 flex justify-center p-12 ${
-            currentSlide === 0 ? "items-center" : "items-start pt-8"
+          className={`absolute inset-0 flex justify-center ${
+            currentSlide === 0 ? "items-center p-12" : "items-stretch p-8"
           }`}
         >
           {currentSlide === 0 && <TitleSlide />}
@@ -333,98 +333,120 @@ function TitleSlide() {
 
 function BackgroundSlide() {
   return (
-    <div className="w-full max-w-7xl">
-      {/* Header */}
-      <motion.header
+    <div className="w-full h-full grid grid-rows-[auto_1fr] gap-6">
+      {/* Header Row */}
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center mb-10"
+        className="flex items-center gap-6 px-4"
       >
-        <div className="inline-flex items-center gap-3 text-accent mb-3">
-          <span className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center text-sm font-medium">01</span>
-          <span className="text-lg font-semibold">추진배경</span>
+        <div className="flex items-center gap-3">
+          <span className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center text-accent text-lg font-bold">01</span>
+          <span className="text-white/60 text-lg">추진배경</span>
         </div>
-        <h2 className="text-5xl font-bold">군산의 현황과 과제</h2>
-      </motion.header>
+        <div className="h-px flex-1 bg-white/10" />
+        <h2 className="text-4xl font-bold">군산의 현황과 과제</h2>
+        <div className="h-px flex-1 bg-white/10" />
+      </motion.div>
 
-      {/* Two Column Card Layout */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Left Card - 강점 */}
-        <motion.section
+      {/* Main Content - Two Columns */}
+      <div className="grid grid-cols-2 gap-6 min-h-0">
+        {/* Left Column - 강점 */}
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          className="p-8 rounded-3xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/30"
+          className="flex flex-col rounded-3xl bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/30 overflow-hidden"
         >
-          <h3 className="text-xl font-bold text-accent mb-8 flex items-center gap-3">
-            <Star className="w-5 h-5" />
-            군산의 강점
-          </h3>
-
-          <div className="space-y-4 mb-8">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-accent/10 border border-accent/20">
-              <Building2 className="w-7 h-7 text-accent flex-shrink-0" />
-              <div>
-                <div className="text-3xl font-black text-accent">47<span className="text-lg ml-1">개소</span></div>
-                <div className="text-white/60 text-sm">근대 문화유산</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-accent/10 border border-accent/20">
-              <Users className="w-7 h-7 text-accent flex-shrink-0" />
-              <div>
-                <div className="text-3xl font-black text-accent">850<span className="text-lg ml-1">만명</span></div>
-                <div className="text-white/60 text-sm">연간 관광객</div>
-              </div>
-            </div>
+          {/* Column Header */}
+          <div className="px-8 py-5 border-b border-accent/20 bg-accent/10">
+            <h3 className="text-2xl font-bold text-accent flex items-center gap-3">
+              <Star className="w-6 h-6" />
+              군산의 강점
+            </h3>
           </div>
 
-          <p className="text-white/70 text-sm leading-relaxed p-4 rounded-xl bg-white/5">
-            근대역사의 보물창고, 전국 최다 근대문화유산 보유 도시
-          </p>
-        </motion.section>
+          {/* Column Content */}
+          <div className="flex-1 p-8 flex flex-col gap-6">
+            {/* Stat Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-black/20 border border-accent/20 text-center">
+                <Building2 className="w-10 h-10 text-accent mx-auto mb-3" />
+                <div className="text-5xl font-black text-accent">47</div>
+                <div className="text-accent/80 text-sm mt-1">개소</div>
+                <div className="text-white/50 text-xs mt-2">근대 문화유산</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-black/20 border border-accent/20 text-center">
+                <Users className="w-10 h-10 text-accent mx-auto mb-3" />
+                <div className="text-5xl font-black text-accent">850</div>
+                <div className="text-accent/80 text-sm mt-1">만명</div>
+                <div className="text-white/50 text-xs mt-2">연간 관광객</div>
+              </div>
+            </div>
 
-        {/* Right Card - 과제 */}
-        <motion.section
+            {/* Description */}
+            <div className="flex-1 flex items-center justify-center p-6 rounded-2xl bg-black/10 border border-white/5">
+              <p className="text-white/70 text-center text-lg leading-relaxed">
+                근대역사의 보물창고<br />
+                <span className="text-accent font-semibold">전국 최다</span> 근대문화유산 보유 도시
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Column - 과제 */}
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
-          className="p-8 rounded-3xl bg-gradient-to-br from-red-500/10 via-red-500/5 to-transparent border border-red-500/30"
+          className="flex flex-col rounded-3xl bg-gradient-to-br from-red-500/15 to-red-500/5 border border-red-500/30 overflow-hidden"
         >
-          <h3 className="text-xl font-bold text-red-400 mb-8 flex items-center gap-3">
-            <Target className="w-5 h-5" />
-            현재 과제
-          </h3>
-
-          <div className="space-y-4 mb-8">
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-red-500/10 border border-red-500/20">
-              <Clock className="w-7 h-7 text-red-400 flex-shrink-0" />
-              <div>
-                <div className="text-3xl font-black text-red-400">3-4<span className="text-lg ml-1">시간</span></div>
-                <div className="text-white/60 text-sm">평균 체류시간</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-red-500/10 border border-red-500/20">
-              <TrendingDown className="w-7 h-7 text-red-400 flex-shrink-0" />
-              <div>
-                <div className="text-3xl font-black text-red-400">10<span className="text-lg ml-1">%</span></div>
-                <div className="text-white/60 text-sm">재방문율</div>
-              </div>
-            </div>
+          {/* Column Header */}
+          <div className="px-8 py-5 border-b border-red-500/20 bg-red-500/10">
+            <h3 className="text-2xl font-bold text-red-400 flex items-center gap-3">
+              <Target className="w-6 h-6" />
+              현재 과제
+            </h3>
           </div>
 
-          <div className="space-y-2">
-            {[
-              "'보는' 관광 위주의 단편적 체험",
-              "역사와 음식의 연결고리 부재",
-              "숙박 연계 프로그램 미흡",
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-red-950/50">
-                <span className="text-red-400 text-sm">✕</span>
-                <span className="text-white/70 text-sm">{item}</span>
+          {/* Column Content */}
+          <div className="flex-1 p-8 flex flex-col gap-6">
+            {/* Stat Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-black/20 border border-red-500/20 text-center">
+                <Clock className="w-10 h-10 text-red-400 mx-auto mb-3" />
+                <div className="text-5xl font-black text-red-400">3-4</div>
+                <div className="text-red-400/80 text-sm mt-1">시간</div>
+                <div className="text-white/50 text-xs mt-2">평균 체류시간</div>
               </div>
-            ))}
+              <div className="p-6 rounded-2xl bg-black/20 border border-red-500/20 text-center">
+                <TrendingDown className="w-10 h-10 text-red-400 mx-auto mb-3" />
+                <div className="text-5xl font-black text-red-400">10</div>
+                <div className="text-red-400/80 text-sm mt-1">%</div>
+                <div className="text-white/50 text-xs mt-2">재방문율</div>
+              </div>
+            </div>
+
+            {/* Problem List */}
+            <div className="flex-1 flex flex-col gap-3">
+              {[
+                "'보는' 관광 위주의 단편적 체험",
+                "역사와 음식의 연결고리 부재",
+                "숙박 연계 프로그램 미흡",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-black/20 border border-red-500/10"
+                >
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-red-400 font-bold">✕</span>
+                  </div>
+                  <span className="text-white/80">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </motion.section>
+        </motion.div>
       </div>
     </div>
   );
