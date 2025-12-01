@@ -178,8 +178,8 @@ export default function Presentation() {
           animate="center"
           exit="exit"
           transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-          className={`absolute inset-0 flex items-center p-12 ${
-            currentSlide === 0 ? "justify-center" : "justify-start pt-8"
+          className={`absolute inset-0 flex justify-center p-12 ${
+            currentSlide === 0 ? "items-center" : "items-start pt-8"
           }`}
         >
           {currentSlide === 0 && <TitleSlide />}
