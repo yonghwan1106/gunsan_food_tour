@@ -330,73 +330,98 @@ function TitleSlide() {
 }
 
 function BackgroundSlide() {
-  const stats = [
-    { label: "근대 문화유산", value: "47", unit: "개소", icon: Building2, color: "text-accent", bgColor: "bg-accent/20" },
-    { label: "평균 체류시간", value: "3-4", unit: "시간", icon: Clock, color: "text-red-400", bgColor: "bg-red-500/20", highlight: true },
-    { label: "재방문율", value: "10", unit: "%", icon: TrendingDown, color: "text-red-400", bgColor: "bg-red-500/20", highlight: true },
-    { label: "연간 관광객", value: "850", unit: "만명", icon: Users, color: "text-accent", bgColor: "bg-accent/20" },
-  ];
-
   return (
-    <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-5">
+    <div className="w-full max-w-7xl px-8">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center mb-16"
+      >
+        <div className="inline-flex items-center gap-3 text-accent text-lg font-semibold mb-4">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">01</span>
           추진배경
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold leading-tight">군산의 현황과 과제</h2>
+        <h2 className="text-5xl md:text-6xl font-bold">군산의 현황과 과제</h2>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
-        {stats.map((stat, index) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 + index * 0.1 }}
-            className={`flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border ${
-              stat.highlight ? "border-red-500/40" : "border-white/10"
-            } group hover:bg-white/10 transition-all`}
-          >
-            <div className={`w-14 h-14 mb-4 rounded-xl ${stat.bgColor} flex items-center justify-center`}>
-              <stat.icon className={`w-7 h-7 ${stat.color}`} />
+      {/* Two Column Layout */}
+      <div className="grid md:grid-cols-2 gap-10">
+        {/* Left Column - 강점 */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+          className="space-y-6"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+              <Star className="w-5 h-5 text-accent" />
             </div>
-            <div className={`text-4xl font-black mb-2 ${stat.color}`}>
-              {stat.value}
-              <span className="text-xl font-medium ml-1">{stat.unit}</span>
-            </div>
-            <div className="text-white/60 text-base">{stat.label}</div>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="mt-6 p-5 rounded-2xl bg-gradient-to-r from-red-950/50 to-red-900/30 border border-red-500/40"
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 rounded-lg bg-red-500/30 flex items-center justify-center">
-            <Target className="w-4 h-4 text-red-400" />
+            <h3 className="text-2xl font-bold text-accent">군산의 강점</h3>
           </div>
-          <h3 className="text-lg font-bold text-red-400">현재 문제점</h3>
-        </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          {[
-            "'보는' 관광 위주의 단편적 체험",
-            "역사와 음식의 연결 스토리텔링 부재",
-            "숙박 연계 프로그램 미흡",
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-black/30 border border-red-500/20">
-              <div className="w-6 h-6 rounded-full bg-red-500/40 flex items-center justify-center flex-shrink-0">
-                <span className="text-red-300 text-xs font-bold">✕</span>
-              </div>
-              <span className="text-white/90 text-sm leading-relaxed">{item}</span>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/30">
+              <Building2 className="w-8 h-8 text-accent mb-3" />
+              <div className="text-4xl font-black text-accent mb-1">47<span className="text-xl">개소</span></div>
+              <div className="text-white/70 text-sm">근대 문화유산</div>
             </div>
-          ))}
-        </div>
-      </motion.div>
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/30">
+              <Users className="w-8 h-8 text-accent mb-3" />
+              <div className="text-4xl font-black text-accent mb-1">850<span className="text-xl">만명</span></div>
+              <div className="text-white/70 text-sm">연간 관광객</div>
+            </div>
+          </div>
+
+          <div className="p-5 rounded-xl bg-white/5 border border-white/10">
+            <p className="text-white/80 text-sm leading-relaxed">
+              근대역사의 보물창고, 전국 최다 근대문화유산 보유 도시
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Right Column - 과제 */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
+          className="space-y-6"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center">
+              <Target className="w-5 h-5 text-red-400" />
+            </div>
+            <h3 className="text-2xl font-bold text-red-400">현재 과제</h3>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-500/5 border border-red-500/30">
+              <Clock className="w-8 h-8 text-red-400 mb-3" />
+              <div className="text-4xl font-black text-red-400 mb-1">3-4<span className="text-xl">시간</span></div>
+              <div className="text-white/70 text-sm">평균 체류시간</div>
+            </div>
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-500/5 border border-red-500/30">
+              <TrendingDown className="w-8 h-8 text-red-400 mb-3" />
+              <div className="text-4xl font-black text-red-400 mb-1">10<span className="text-xl">%</span></div>
+              <div className="text-white/70 text-sm">재방문율</div>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              "'보는' 관광 위주의 단편적 체험",
+              "역사와 음식의 연결고리 부재",
+              "숙박 연계 프로그램 미흡",
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-red-950/40 border border-red-500/20">
+                <span className="text-red-400 text-lg">✕</span>
+                <span className="text-white/80 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
