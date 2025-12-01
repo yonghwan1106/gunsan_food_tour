@@ -602,26 +602,26 @@ function ConceptSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="text-center text-xl text-white/60 mb-8"
+        className="text-center text-xl text-white/60 mb-10"
       >
         5감 체험 프로그램
       </motion.h3>
 
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-6">
         {senses.map((sense, index) => (
           <motion.div
             key={sense.name}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 + index * 0.1 }}
-            className="group relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 text-center hover:border-white/30 transition-all overflow-hidden"
+            className="group relative p-5 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 text-center hover:border-white/30 transition-all overflow-hidden"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${sense.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
-            <div className={`w-12 h-12 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${sense.color} flex items-center justify-center`}>
-              <sense.icon className="w-6 h-6 text-white" />
+            <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${sense.color} flex items-center justify-center`}>
+              <sense.icon className="w-7 h-7 text-white" />
             </div>
             <h4 className="text-xl font-bold text-white mb-3">{sense.name}</h4>
-            <p className="text-white/50 text-xs whitespace-pre-line leading-loose">{sense.desc}</p>
+            <p className="text-white/50 text-sm whitespace-pre-line leading-relaxed">{sense.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -948,16 +948,16 @@ function PartnershipSlide() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + index * 0.1 }}
-            className="relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/30 transition-all"
+            className="relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/30 transition-all min-h-[280px]"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
-            <div className="relative z-10">
+            <div className="relative z-10 h-full flex flex-col">
               <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center mb-4`}>
                 <partner.icon className="w-6 h-6 text-white" />
               </div>
               <div className="text-4xl font-black text-white mb-2">{partner.count}<span className="text-lg">개</span></div>
               <h3 className="text-lg font-bold mb-4 leading-snug">{partner.category}</h3>
-              <div className="space-y-2">
+              <div className="space-y-2 flex-grow">
                 {partner.items.map((item) => (
                   <div key={item} className="text-white/50 text-xs leading-relaxed">• {item}</div>
                 ))}
@@ -1255,7 +1255,7 @@ function SocialEffectSlide() {
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
         <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">13</span>
           기대효과
@@ -1263,23 +1263,23 @@ function SocialEffectSlide() {
         <h2 className="text-5xl md:text-6xl font-bold">사회문화적 효과</h2>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
         {effects.map((effect, index) => (
           <motion.div
             key={effect.title}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + index * 0.15 }}
-            className="relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/30 transition-all"
+            className="relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/30 transition-all"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${effect.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
-            <div className="relative z-10 flex items-start gap-6">
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${effect.color} flex items-center justify-center flex-shrink-0`}>
-                <effect.icon className="w-8 h-8 text-white" />
+            <div className="relative z-10 flex items-center gap-5">
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${effect.color} flex items-center justify-center flex-shrink-0`}>
+                <effect.icon className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">{effect.title}</h3>
-                <p className="text-white/60 text-lg">{effect.desc}</p>
+                <h3 className="text-xl font-bold mb-2">{effect.title}</h3>
+                <p className="text-white/60 text-base leading-relaxed">{effect.desc}</p>
               </div>
             </div>
           </motion.div>
@@ -1290,12 +1290,12 @@ function SocialEffectSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="p-10 rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 text-center"
+        className="p-8 rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20 text-center"
       >
-        <p className="text-2xl text-white/70">
+        <p className="text-xl text-white/70">
           체류시간{" "}
           <span className="inline-flex items-center gap-3 mx-2">
-            <span className="text-red-400 font-bold">3-4시간</span>
+            <span className="text-red-400 font-bold text-2xl">3-4시간</span>
             <ArrowRight className="w-6 h-6 text-accent" />
             <span className="text-accent font-bold text-3xl">1박 2일</span>
           </span>{" "}
@@ -1311,7 +1311,7 @@ function VisionSlide() {
     <div className="w-full max-w-5xl text-center relative">
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
 
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
         <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">14</span>
           비전
@@ -1323,12 +1323,9 @@ function VisionSlide() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
-        className="relative p-16 rounded-3xl bg-gradient-to-br from-accent/10 via-white/5 to-accent/10 border border-accent/30 mb-16"
+        className="relative p-12 rounded-3xl bg-gradient-to-br from-accent/10 via-white/5 to-accent/10 border border-accent/30 mb-10 mt-8"
       >
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-accent text-background font-bold">
-          OUR VISION
-        </div>
-        <p className="text-4xl md:text-6xl font-bold leading-tight">
+        <p className="text-3xl md:text-5xl font-bold leading-relaxed">
           <span className="text-white/50">&quot;시간이 멈춘 도시에서</span>
           <br />
           <span className="gradient-text">시간을 여행하는 도시로&quot;</span>
@@ -1339,18 +1336,18 @@ function VisionSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="grid md:grid-cols-3 gap-8 mb-16"
+        className="grid md:grid-cols-3 gap-6 mb-10"
       >
         {[
           { icon: Globe, title: "K-Food 투어의 중심", color: "from-blue-500 to-blue-700" },
           { icon: Star, title: "미식 관광 1번지", color: "from-amber-500 to-amber-700" },
           { icon: Heart, title: "지속 가능한 관광", color: "from-red-500 to-red-700" },
         ].map((item, i) => (
-          <div key={i} className="p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all">
-            <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center`}>
-              <item.icon className="w-8 h-8 text-white" />
+          <div key={i} className="p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all">
+            <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center`}>
+              <item.icon className="w-7 h-7 text-white" />
             </div>
-            <div className="text-xl font-bold">{item.title}</div>
+            <div className="text-lg font-bold">{item.title}</div>
           </div>
         ))}
       </motion.div>
@@ -1359,10 +1356,10 @@ function VisionSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="space-y-6"
+        className="space-y-4"
       >
-        <p className="text-5xl font-black gradient-text">감사합니다</p>
-        <p className="text-white/40 text-xl">군산 타임슬립 미식투어</p>
+        <p className="text-4xl font-black gradient-text">감사합니다</p>
+        <p className="text-white/40 text-lg">군산 타임슬립 미식투어</p>
       </motion.div>
     </div>
   );
