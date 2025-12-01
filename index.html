@@ -127,16 +127,6 @@
       z-index: 1000;
     }
 
-    /* Keyboard hint */
-    .keyboard-hint {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.3);
-      font-size: 12px;
-      font-family: system-ui, sans-serif;
-    }
   </style>
 </head>
 <body>
@@ -180,9 +170,6 @@
     <span class="current" id="current-num">01</span>
     <span class="total">/ 15</span>
   </div>
-
-  <!-- Keyboard hint -->
-  <div class="keyboard-hint">← → 키보드로 이동 | Space/Enter 다음</div>
 
   <script>
     const TOTAL_SLIDES = 15;
