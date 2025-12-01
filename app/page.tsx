@@ -254,7 +254,7 @@ function TitleSlide() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="mb-10"
+        className="mb-12"
       >
         <span className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-accent/10 border border-accent/30 text-accent text-base font-medium">
           <Sparkles className="w-5 h-5" />
@@ -266,7 +266,7 @@ function TitleSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="text-7xl md:text-9xl font-black mb-8 leading-tight"
+        className="text-7xl md:text-9xl font-black mb-10 leading-[1.2]"
       >
         <span className="gradient-text">군산 타임슬립</span>
         <br />
@@ -277,7 +277,7 @@ function TitleSlide() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="text-3xl md:text-4xl text-white/60 mb-16 font-light"
+        className="text-3xl md:text-4xl text-white/60 mb-20 font-light leading-relaxed"
       >
         1930년대로 떠나는 미식 시간여행
       </motion.p>
@@ -286,14 +286,14 @@ function TitleSlide() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.8 }}
-        className="flex items-center justify-center gap-12"
+        className="flex items-center justify-center gap-16"
       >
         {[
           { icon: Clock, label: "근대역사" },
           { icon: Utensils, label: "미식체험" },
           { icon: Heart, label: "감성여행" },
         ].map((item, i) => (
-          <div key={i} className="flex flex-col items-center gap-3">
+          <div key={i} className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/30 flex items-center justify-center">
               <item.icon className="w-8 h-8 text-accent" />
             </div>
@@ -315,33 +315,33 @@ function BackgroundSlide() {
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">01</span>
           추진배경
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold">군산의 현황과 과제</h2>
+        <h2 className="text-5xl md:text-6xl font-bold leading-tight">군산의 현황과 과제</h2>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
-            className={`relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border ${
+            className={`relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border ${
               stat.highlight ? "border-red-500/30" : "border-white/10"
             } text-center group hover:bg-white/10 transition-all`}
           >
-            <div className={`w-14 h-14 mx-auto mb-6 rounded-2xl ${stat.highlight ? "bg-red-500/20" : "bg-accent/20"} flex items-center justify-center`}>
-              <stat.icon className={`w-7 h-7 ${stat.color}`} />
+            <div className={`w-12 h-12 mx-auto mb-4 rounded-2xl ${stat.highlight ? "bg-red-500/20" : "bg-accent/20"} flex items-center justify-center`}>
+              <stat.icon className={`w-6 h-6 ${stat.color}`} />
             </div>
-            <div className={`text-5xl font-black mb-2 ${stat.color}`}>
+            <div className={`text-4xl font-black mb-3 ${stat.color}`}>
               {stat.value}
-              <span className="text-2xl font-medium ml-1">{stat.unit}</span>
+              <span className="text-xl font-medium ml-1">{stat.unit}</span>
             </div>
-            <div className="text-white/50 text-base">{stat.label}</div>
+            <div className="text-white/50 text-sm leading-relaxed">{stat.label}</div>
           </motion.div>
         ))}
       </div>
@@ -350,23 +350,23 @@ function BackgroundSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="p-10 rounded-3xl bg-gradient-to-r from-red-900/20 to-transparent border border-red-500/20"
+        className="p-8 rounded-3xl bg-gradient-to-r from-red-900/20 to-transparent border border-red-500/20"
       >
-        <h3 className="text-2xl font-bold text-red-400 mb-8 flex items-center gap-3">
-          <Target className="w-8 h-8" />
+        <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-3">
+          <Target className="w-6 h-6" />
           현재 문제점
         </h3>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {[
             "'보는' 관광 위주의 단편적 체험",
             "역사와 음식의 연결 스토리텔링 부재",
             "숙박 연계 프로그램 미흡",
           ].map((item, i) => (
             <div key={i} className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                <span className="text-red-400 text-lg">✕</span>
+              <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-red-400 text-base">✕</span>
               </div>
-              <span className="text-white/80 text-lg leading-relaxed">{item}</span>
+              <span className="text-white/80 text-base leading-loose">{item}</span>
             </div>
           ))}
         </div>
@@ -385,39 +385,39 @@ function FoodResourceSlide() {
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">02</span>
           미식 자원
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold mb-4">군산의 미식 자원</h2>
-        <p className="text-white/50 text-xl">100년 역사가 담긴 맛의 보물창고</p>
+        <h2 className="text-5xl md:text-6xl font-bold mb-5 leading-tight">군산의 미식 자원</h2>
+        <p className="text-white/50 text-xl leading-relaxed">100년 역사가 담긴 맛의 보물창고</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-6 mb-10">
         {resources.map((resource, index) => (
           <motion.div
             key={resource.name}
             initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 + index * 0.15 }}
-            className="group p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-accent/30 hover:bg-white/10 transition-all"
+            className="group p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-accent/30 hover:bg-white/10 transition-all"
           >
-            <div className="flex items-start gap-6">
+            <div className="flex items-start gap-5">
               <div className="relative">
-                <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center text-4xl">
+                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-3xl">
                   {resource.emoji}
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
-                  <resource.icon className="w-5 h-5 text-accent" />
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <resource.icon className="w-4 h-4 text-accent" />
                 </div>
               </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-4 mb-3">
-                  <h3 className="text-2xl font-bold">{resource.name}</h3>
-                  <span className="px-3 py-1 rounded-full bg-accent/20 text-accent text-sm">{resource.since}</span>
+              <div className="flex-1 pt-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="text-xl font-bold leading-snug">{resource.name}</h3>
+                  <span className="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs">{resource.since}</span>
                 </div>
-                <p className="text-white/60 text-lg">{resource.desc}</p>
+                <p className="text-white/60 text-base leading-relaxed">{resource.desc}</p>
               </div>
             </div>
           </motion.div>
@@ -428,7 +428,7 @@ function FoodResourceSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="flex items-center justify-center gap-16 p-8 rounded-3xl bg-accent/5 border border-accent/20"
+        className="flex items-center justify-center gap-16 p-6 rounded-3xl bg-accent/5 border border-accent/20"
       >
         {[
           { value: "30+", label: "협력 가능 음식점" },
@@ -436,8 +436,8 @@ function FoodResourceSlide() {
           { value: "5감", label: "체험 가능" },
         ].map((item, i) => (
           <div key={i} className="text-center">
-            <div className="text-4xl font-black text-accent mb-2">{item.value}</div>
-            <div className="text-white/50">{item.label}</div>
+            <div className="text-3xl font-black text-accent mb-2">{item.value}</div>
+            <div className="text-white/50 text-sm leading-relaxed">{item.label}</div>
           </div>
         ))}
       </motion.div>
@@ -448,33 +448,33 @@ function FoodResourceSlide() {
 function ProblemSolutionSlide() {
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">03</span>
           문제점 & 솔루션
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold">해결책을 제시합니다</h2>
+        <h2 className="text-5xl md:text-6xl font-bold leading-tight">해결책을 제시합니다</h2>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-12">
+      <div className="grid md:grid-cols-2 gap-8">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3 }}
-          className="relative p-10 rounded-3xl bg-gradient-to-br from-red-900/30 to-red-900/10 border border-red-500/30"
+          className="relative p-8 rounded-3xl bg-gradient-to-br from-red-900/30 to-red-900/10 border border-red-500/30"
         >
-          <div className="absolute -top-6 left-10">
-            <div className="px-4 py-2 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 font-bold">
+          <div className="absolute -top-5 left-8">
+            <div className="px-4 py-2 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 font-bold text-sm">
               PROBLEM
             </div>
           </div>
-          <h3 className="text-3xl font-bold text-red-400 mb-10 flex items-center gap-4 mt-4">
-            <div className="w-14 h-14 rounded-2xl bg-red-500/20 flex items-center justify-center">
-              <Target className="w-7 h-7" />
+          <h3 className="text-2xl font-bold text-red-400 mb-8 flex items-center gap-4 mt-2">
+            <div className="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center">
+              <Target className="w-6 h-6" />
             </div>
             현재 문제점
           </h3>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               "단편적인 '보는' 관광 중심",
               "역사-음식 연계 스토리텔링 부재",
@@ -482,10 +482,10 @@ function ProblemSolutionSlide() {
               "낮은 재방문율 (10%)",
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-red-900/20">
-                <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-red-400 text-xl">✕</span>
+                <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-red-400 text-base">✕</span>
                 </div>
-                <span className="text-white/80 text-lg">{item}</span>
+                <span className="text-white/80 text-base leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
@@ -495,20 +495,20 @@ function ProblemSolutionSlide() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
-          className="relative p-10 rounded-3xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30"
+          className="relative p-8 rounded-3xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30"
         >
-          <div className="absolute -top-6 left-10">
-            <div className="px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold">
+          <div className="absolute -top-5 left-8">
+            <div className="px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold text-sm">
               SOLUTION
             </div>
           </div>
-          <h3 className="text-3xl font-bold text-accent mb-10 flex items-center gap-4 mt-4">
-            <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center">
-              <Sparkles className="w-7 h-7" />
+          <h3 className="text-2xl font-bold text-accent mb-8 flex items-center gap-4 mt-2">
+            <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center">
+              <Sparkles className="w-6 h-6" />
             </div>
             솔루션
           </h3>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               { text: "타임슬립 컨셉으로 몰입감 있는 체험", bold: "타임슬립 컨셉" },
               { text: "역사×미식 결합 스토리텔링", bold: "역사×미식" },
@@ -516,10 +516,10 @@ function ProblemSolutionSlide() {
               { text: "코스별 맞춤 다양한 옵션", bold: "코스별 맞춤" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-accent/10">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-accent text-xl">✓</span>
+                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-accent text-base">✓</span>
                 </div>
-                <span className="text-white/80 text-lg">
+                <span className="text-white/80 text-base leading-relaxed">
                   <strong className="text-accent">{item.bold}</strong>
                   {item.text.replace(item.bold, "")}
                 </span>
@@ -531,8 +531,8 @@ function ProblemSolutionSlide() {
 
       {/* Arrow between */}
       <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-          <ArrowRight className="w-8 h-8 text-accent" />
+        <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+          <ArrowRight className="w-7 h-7 text-accent" />
         </div>
       </div>
     </div>
@@ -550,24 +550,24 @@ function ConceptSlide() {
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">04</span>
           핵심 컨셉
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold">타임슬립 미식여행</h2>
+        <h2 className="text-5xl md:text-6xl font-bold leading-tight">타임슬립 미식여행</h2>
       </motion.div>
 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
-        className="relative text-center mb-16 p-12 rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20"
+        className="relative text-center mb-12 p-10 rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20"
       >
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-accent text-background font-bold text-sm">
           CORE CONCEPT
         </div>
-        <p className="text-4xl md:text-5xl font-bold leading-relaxed">
+        <p className="text-3xl md:text-4xl font-bold leading-loose">
           <span className="gradient-text">&quot;1930년대 근대 군산으로</span>
           <br />
           <span className="text-white">떠나는 미식 시간여행&quot;</span>
@@ -578,26 +578,26 @@ function ConceptSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="text-center text-2xl text-white/60 mb-10"
+        className="text-center text-xl text-white/60 mb-8"
       >
         5감 체험 프로그램
       </motion.h3>
 
-      <div className="grid grid-cols-5 gap-6">
+      <div className="grid grid-cols-5 gap-4">
         {senses.map((sense, index) => (
           <motion.div
             key={sense.name}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 + index * 0.1 }}
-            className="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 text-center hover:border-white/30 transition-all overflow-hidden"
+            className="group relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 text-center hover:border-white/30 transition-all overflow-hidden"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${sense.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
-            <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${sense.color} flex items-center justify-center`}>
-              <sense.icon className="w-8 h-8 text-white" />
+            <div className={`w-12 h-12 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${sense.color} flex items-center justify-center`}>
+              <sense.icon className="w-6 h-6 text-white" />
             </div>
-            <h4 className="text-2xl font-bold text-white mb-3">{sense.name}</h4>
-            <p className="text-white/50 text-sm whitespace-pre-line leading-relaxed">{sense.desc}</p>
+            <h4 className="text-xl font-bold text-white mb-3">{sense.name}</h4>
+            <p className="text-white/50 text-xs whitespace-pre-line leading-loose">{sense.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -621,42 +621,42 @@ function ProgramOverviewSlide() {
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">05</span>
           프로그램 개요
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold mb-4">3개 코스 투어</h2>
-        <p className="text-white/50 text-xl">+ 계절별 특별 프로그램</p>
+        <h2 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">3개 코스 투어</h2>
+        <p className="text-white/50 text-xl leading-relaxed">+ 계절별 특별 프로그램</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
+      <div className="grid md:grid-cols-3 gap-6 mb-10">
         {courses.map((course, index) => (
           <motion.div
             key={course.name}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + index * 0.15 }}
-            className="group relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:scale-105 transition-transform cursor-pointer"
+            className="group relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:scale-105 transition-transform cursor-pointer"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
             <div className="relative z-10">
-              <div className="flex items-center justify-between mb-6">
-                <span className={`text-6xl font-black bg-gradient-to-br ${course.color} bg-clip-text text-transparent`}>
+              <div className="flex items-center justify-between mb-5">
+                <span className={`text-5xl font-black bg-gradient-to-br ${course.color} bg-clip-text text-transparent`}>
                   {course.name}
                 </span>
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${course.color} flex items-center justify-center`}>
-                  <course.icon className="w-7 h-7 text-white" />
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${course.color} flex items-center justify-center`}>
+                  <course.icon className="w-6 h-6 text-white" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-6">{course.title}</h3>
-              <div className="flex items-center justify-between text-white/60">
+              <h3 className="text-xl font-bold mb-5 leading-snug">{course.title}</h3>
+              <div className="flex items-center justify-between text-white/60 text-sm">
                 <span className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
+                  <Clock className="w-4 h-4" />
                   {course.duration}
                 </span>
                 <span className="flex items-center gap-2">
-                  <DollarSign className="w-5 h-5" />
+                  <DollarSign className="w-4 h-4" />
                   {course.price}
                 </span>
               </div>
@@ -669,18 +669,18 @@ function ProgramOverviewSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10"
+        className="p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10"
       >
-        <h3 className="text-xl font-bold text-accent mb-8 flex items-center gap-3">
-          <Calendar className="w-6 h-6" />
+        <h3 className="text-lg font-bold text-accent mb-6 flex items-center gap-3">
+          <Calendar className="w-5 h-5" />
           계절별 특별 프로그램
         </h3>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 gap-4">
           {seasons.map((s, i) => (
-            <div key={i} className="text-center p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors">
-              <div className="text-5xl mb-4">{s.emoji}</div>
-              <div className="text-lg font-bold text-white mb-2">{s.season}</div>
-              <div className="text-white/50">{s.food}</div>
+            <div key={i} className="text-center p-5 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors">
+              <div className="text-4xl mb-3">{s.emoji}</div>
+              <div className="text-base font-bold text-white mb-2 leading-snug">{s.season}</div>
+              <div className="text-white/50 text-sm leading-relaxed">{s.food}</div>
             </div>
           ))}
         </div>
@@ -699,20 +699,20 @@ function CourseASlide() {
 
   return (
     <div className="w-full max-w-5xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 text-blue-400 text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <div className="inline-flex items-center gap-3 text-blue-400 text-xl font-semibold mb-5">
           <span className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-sm">06</span>
           코스 A
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold mb-6">개항장의 아침</h2>
+        <h2 className="text-5xl md:text-6xl font-bold mb-5 leading-tight">개항장의 아침</h2>
         <div className="flex items-center justify-center gap-8">
           {[
             { icon: Clock, text: "4시간", color: "text-blue-400" },
             { icon: DollarSign, text: "50,000원", color: "text-blue-400" },
             { icon: Users, text: "최대 15명", color: "text-blue-400" },
           ].map((item, i) => (
-            <span key={i} className="flex items-center gap-2 text-white/60 text-lg">
-              <item.icon className={`w-5 h-5 ${item.color}`} />
+            <span key={i} className="flex items-center gap-2 text-white/60 text-base">
+              <item.icon className={`w-4 h-4 ${item.color}`} />
               {item.text}
             </span>
           ))}
@@ -728,17 +728,17 @@ function CourseASlide() {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + index * 0.15 }}
-            className={`relative flex items-center gap-10 mb-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+            className={`relative flex items-center gap-8 mb-6 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
           >
             <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
-              <div className="inline-block p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/30 transition-colors">
-                <span className="text-blue-400 font-mono text-xl font-bold">{item.time}</span>
-                <p className="text-xl font-bold mt-2 mb-2">{item.activity}</p>
-                <p className="text-white/50 text-sm">{item.desc}</p>
+              <div className="inline-block p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-blue-500/30 transition-colors">
+                <span className="text-blue-400 font-mono text-lg font-bold">{item.time}</span>
+                <p className="text-lg font-bold mt-2 mb-2 leading-snug">{item.activity}</p>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center z-10 shadow-lg shadow-blue-500/30">
-              <item.icon className="w-7 h-7 text-white" />
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center z-10 shadow-lg shadow-blue-500/30">
+              <item.icon className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1" />
           </motion.div>
@@ -749,9 +749,9 @@ function CourseASlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="mt-10 p-6 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-center"
+        className="mt-8 p-5 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-center"
       >
-        <span className="text-white/70">
+        <span className="text-white/70 text-sm leading-relaxed">
           <strong className="text-blue-400">포함 내역:</strong> 입장료, 모닝빵 세트, 점심 짬뽕, 전문 해설 서비스
         </span>
       </motion.div>
@@ -768,20 +768,20 @@ function CourseBSlide() {
 
   return (
     <div className="w-full max-w-5xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 text-orange-400 text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <div className="inline-flex items-center gap-3 text-orange-400 text-xl font-semibold mb-5">
           <span className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-sm">07</span>
           코스 B
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold mb-6">항구의 오후</h2>
+        <h2 className="text-5xl md:text-6xl font-bold mb-5 leading-tight">항구의 오후</h2>
         <div className="flex items-center justify-center gap-8">
           {[
             { icon: Clock, text: "3시간", color: "text-orange-400" },
             { icon: DollarSign, text: "40,000원", color: "text-orange-400" },
             { icon: Users, text: "최대 12명", color: "text-orange-400" },
           ].map((item, i) => (
-            <span key={i} className="flex items-center gap-2 text-white/60 text-lg">
-              <item.icon className={`w-5 h-5 ${item.color}`} />
+            <span key={i} className="flex items-center gap-2 text-white/60 text-base">
+              <item.icon className={`w-4 h-4 ${item.color}`} />
               {item.text}
             </span>
           ))}
@@ -797,17 +797,17 @@ function CourseBSlide() {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + index * 0.15 }}
-            className={`relative flex items-center gap-10 mb-10 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+            className={`relative flex items-center gap-8 mb-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
           >
             <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
-              <div className="inline-block p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-orange-500/30 transition-colors">
-                <span className="text-orange-400 font-mono text-xl font-bold">{item.time}</span>
-                <p className="text-xl font-bold mt-2 mb-2">{item.activity}</p>
-                <p className="text-white/50 text-sm">{item.desc}</p>
+              <div className="inline-block p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-orange-500/30 transition-colors">
+                <span className="text-orange-400 font-mono text-lg font-bold">{item.time}</span>
+                <p className="text-lg font-bold mt-2 mb-2 leading-snug">{item.activity}</p>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center z-10 shadow-lg shadow-orange-500/30">
-              <item.icon className="w-7 h-7 text-white" />
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center z-10 shadow-lg shadow-orange-500/30">
+              <item.icon className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1" />
           </motion.div>
@@ -818,9 +818,9 @@ function CourseBSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="mt-10 p-6 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-center"
+        className="mt-8 p-5 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-center"
       >
-        <span className="text-white/70">
+        <span className="text-white/70 text-sm leading-relaxed">
           <strong className="text-orange-400">포함 내역:</strong> 요리교실 재료비, 완성품 포장, 선셋 투어
         </span>
       </motion.div>
@@ -838,20 +838,20 @@ function CourseCSlide() {
 
   return (
     <div className="w-full max-w-5xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 text-cyan-400 text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <div className="inline-flex items-center gap-3 text-cyan-400 text-xl font-semibold mb-5">
           <span className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center text-sm">08</span>
           코스 C
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold mb-6">선유도 해양 미식</h2>
+        <h2 className="text-5xl md:text-6xl font-bold mb-5 leading-tight">선유도 해양 미식</h2>
         <div className="flex items-center justify-center gap-8">
           {[
             { icon: Clock, text: "8시간", color: "text-cyan-400" },
             { icon: DollarSign, text: "120,000원", color: "text-cyan-400" },
             { icon: Users, text: "최대 20명", color: "text-cyan-400" },
           ].map((item, i) => (
-            <span key={i} className="flex items-center gap-2 text-white/60 text-lg">
-              <item.icon className={`w-5 h-5 ${item.color}`} />
+            <span key={i} className="flex items-center gap-2 text-white/60 text-base">
+              <item.icon className={`w-4 h-4 ${item.color}`} />
               {item.text}
             </span>
           ))}
@@ -867,17 +867,17 @@ function CourseCSlide() {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + index * 0.15 }}
-            className={`relative flex items-center gap-10 mb-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+            className={`relative flex items-center gap-8 mb-6 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
           >
             <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
-              <div className="inline-block p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-500/30 transition-colors">
-                <span className="text-cyan-400 font-mono text-xl font-bold">{item.time}</span>
-                <p className="text-xl font-bold mt-2 mb-2">{item.activity}</p>
-                <p className="text-white/50 text-sm">{item.desc}</p>
+              <div className="inline-block p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-cyan-500/30 transition-colors">
+                <span className="text-cyan-400 font-mono text-lg font-bold">{item.time}</span>
+                <p className="text-lg font-bold mt-2 mb-2 leading-snug">{item.activity}</p>
+                <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center z-10 shadow-lg shadow-cyan-500/30">
-              <item.icon className="w-7 h-7 text-white" />
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center z-10 shadow-lg shadow-cyan-500/30">
+              <item.icon className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1" />
           </motion.div>
@@ -888,9 +888,9 @@ function CourseCSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="mt-10 p-6 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-center"
+        className="mt-8 p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-center"
       >
-        <span className="text-white/70">
+        <span className="text-white/70 text-sm leading-relaxed">
           <strong className="text-cyan-400">포함 내역:</strong> 왕복 선박, 해녀 체험, 해산물 점심, 트레킹 가이드
         </span>
       </motion.div>
@@ -908,34 +908,34 @@ function PartnershipSlide() {
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14">
-        <div className="inline-flex items-center gap-2 text-accent text-xl font-semibold mb-4">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">09</span>
           협력 체계
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold mb-4">상생 파트너십</h2>
-        <p className="text-white/50 text-xl">30개 협력업체와 함께하는 프로젝트</p>
+        <h2 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">상생 파트너십</h2>
+        <p className="text-white/50 text-xl leading-relaxed">30개 협력업체와 함께하는 프로젝트</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-4 gap-6 mb-10">
+      <div className="grid md:grid-cols-4 gap-5 mb-8">
         {partners.map((partner, index) => (
           <motion.div
             key={partner.category}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + index * 0.1 }}
-            className="relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/30 transition-all"
+            className="relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden group hover:border-white/30 transition-all"
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
             <div className="relative z-10">
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center mb-6`}>
-                <partner.icon className="w-7 h-7 text-white" />
+              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center mb-4`}>
+                <partner.icon className="w-6 h-6 text-white" />
               </div>
-              <div className="text-5xl font-black text-white mb-2">{partner.count}<span className="text-xl">개</span></div>
-              <h3 className="text-xl font-bold mb-4">{partner.category}</h3>
+              <div className="text-4xl font-black text-white mb-2">{partner.count}<span className="text-lg">개</span></div>
+              <h3 className="text-lg font-bold mb-4 leading-snug">{partner.category}</h3>
               <div className="space-y-2">
                 {partner.items.map((item) => (
-                  <div key={item} className="text-white/50 text-sm">• {item}</div>
+                  <div key={item} className="text-white/50 text-xs leading-relaxed">• {item}</div>
                 ))}
               </div>
             </div>
@@ -947,20 +947,20 @@ function PartnershipSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="p-8 rounded-3xl bg-accent/5 border border-accent/20"
+        className="p-6 rounded-3xl bg-accent/5 border border-accent/20"
       >
-        <h3 className="text-xl font-bold text-accent mb-6">상생 협력 방안</h3>
-        <div className="grid md:grid-cols-3 gap-6">
+        <h3 className="text-lg font-bold text-accent mb-5">상생 협력 방안</h3>
+        <div className="grid md:grid-cols-3 gap-4">
           {[
             { icon: CircleDollarSign, text: "매출 증대 수수료 모델" },
             { icon: Megaphone, text: "공동 마케팅 지원" },
             { icon: Award, text: "교육 프로그램 제공" },
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-white/5">
-              <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                <item.icon className="w-6 h-6 text-accent" />
+              <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                <item.icon className="w-5 h-5 text-accent" />
               </div>
-              <span className="text-white/80 text-lg">{item.text}</span>
+              <span className="text-white/80 text-base leading-relaxed">{item.text}</span>
             </div>
           ))}
         </div>
