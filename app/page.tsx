@@ -331,41 +331,41 @@ function TitleSlide() {
 
 function BackgroundSlide() {
   const stats = [
-    { label: "근대 문화유산", value: "47", unit: "개소", icon: Building2, color: "text-accent" },
-    { label: "평균 체류시간", value: "3-4", unit: "시간", icon: Clock, color: "text-red-400", highlight: true },
-    { label: "재방문율", value: "10", unit: "%", icon: TrendingDown, color: "text-red-400", highlight: true },
-    { label: "연간 관광객", value: "850", unit: "만명", icon: Users, color: "text-accent" },
+    { label: "근대 문화유산", value: "47", unit: "개소", icon: Building2, color: "text-accent", bgColor: "bg-accent/20" },
+    { label: "평균 체류시간", value: "3-4", unit: "시간", icon: Clock, color: "text-red-400", bgColor: "bg-red-500/20", highlight: true },
+    { label: "재방문율", value: "10", unit: "%", icon: TrendingDown, color: "text-red-400", bgColor: "bg-red-500/20", highlight: true },
+    { label: "연간 관광객", value: "850", unit: "만명", icon: Users, color: "text-accent", bgColor: "bg-accent/20" },
   ];
 
   return (
     <div className="w-full max-w-6xl">
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-14">
-        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-6">
+      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
+        <div className="inline-flex items-center gap-3 text-accent text-xl font-semibold mb-5">
           <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm">01</span>
           추진배경
         </div>
         <h2 className="text-5xl md:text-6xl font-bold leading-tight">군산의 현황과 과제</h2>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
-            className={`relative pt-8 pb-6 px-6 rounded-3xl bg-white/5 backdrop-blur-sm border ${
-              stat.highlight ? "border-red-500/30" : "border-white/10"
+            className={`relative p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border ${
+              stat.highlight ? "border-red-500/40" : "border-white/10"
             } text-center group hover:bg-white/10 transition-all`}
           >
-            <div className={`w-14 h-14 mx-auto mb-5 rounded-2xl ${stat.highlight ? "bg-red-500/20" : "bg-accent/20"} flex items-center justify-center`}>
-              <stat.icon className={`w-7 h-7 ${stat.color}`} />
+            <div className={`w-12 h-12 mx-auto mb-4 rounded-xl ${stat.bgColor} flex items-center justify-center`}>
+              <stat.icon className={`w-6 h-6 ${stat.color}`} />
             </div>
-            <div className={`text-4xl font-black mb-3 ${stat.color}`}>
+            <div className={`text-3xl font-black mb-2 ${stat.color}`}>
               {stat.value}
-              <span className="text-xl font-medium ml-1">{stat.unit}</span>
+              <span className="text-lg font-medium ml-1">{stat.unit}</span>
             </div>
-            <div className="text-white/50 text-sm leading-relaxed">{stat.label}</div>
+            <div className="text-white/60 text-sm">{stat.label}</div>
           </motion.div>
         ))}
       </div>
@@ -374,23 +374,23 @@ function BackgroundSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="p-8 rounded-3xl bg-gradient-to-r from-red-900/20 to-transparent border border-red-500/20"
+        className="p-6 rounded-2xl bg-red-950/30 border border-red-500/30"
       >
-        <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-3">
-          <Target className="w-6 h-6" />
+        <h3 className="text-lg font-bold text-red-400 mb-5 flex items-center gap-3">
+          <Target className="w-5 h-5" />
           현재 문제점
         </h3>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {[
             "'보는' 관광 위주의 단편적 체험",
             "역사와 음식의 연결 스토리텔링 부재",
             "숙박 연계 프로그램 미흡",
           ].map((item, i) => (
-            <div key={i} className="flex items-start gap-4">
-              <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-red-400 text-base">✕</span>
+            <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-red-900/20">
+              <div className="w-7 h-7 rounded-full bg-red-500/30 flex items-center justify-center flex-shrink-0">
+                <span className="text-red-400 text-sm">✕</span>
               </div>
-              <span className="text-white/80 text-base leading-loose">{item}</span>
+              <span className="text-white/80 text-sm leading-relaxed">{item}</span>
             </div>
           ))}
         </div>
