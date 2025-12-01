@@ -586,12 +586,9 @@ function ConceptSlide() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
-        className="relative text-center mb-12 p-10 rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20"
+        className="text-center mb-12 p-10 rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10 border border-accent/20"
       >
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-accent text-background font-bold text-sm">
-          CORE CONCEPT
-        </div>
-        <p className="text-3xl md:text-4xl font-bold leading-loose">
+        <p className="text-3xl md:text-4xl font-bold leading-relaxed">
           <span className="gradient-text">&quot;1930년대 근대 군산으로</span>
           <br />
           <span className="text-white">떠나는 미식 시간여행&quot;</span>
