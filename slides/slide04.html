@@ -30,11 +30,33 @@
     .delay-1 { animation-delay: 0.1s; opacity: 0; }
     .delay-2 { animation-delay: 0.2s; opacity: 0; }
     .delay-3 { animation-delay: 0.3s; opacity: 0; }
+    /* Background image - transformation */
+    .bg-transform {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.90) 50%, rgba(15, 23, 42, 0.94) 100%),
+        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .vignette {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(15, 23, 42, 0.7) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
+  <!-- Background Image -->
+  <div class="bg-transform"></div>
+  <div class="vignette"></div>
+
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-900/30 to-slate-800/50"></div>
     <div class="absolute top-1/2 left-0 w-1/2 h-full bg-gradient-to-r from-red-500/5 to-transparent"></div>
     <div class="absolute top-1/2 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/5 to-transparent"></div>
   </div>

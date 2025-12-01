@@ -32,11 +32,33 @@
     .delay-3 { animation-delay: 0.3s; opacity: 0; }
     .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
     .card-hover:hover { transform: translateY(-5px); }
+    /* Background image - journey/travel */
+    .bg-journey {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.93) 0%, rgba(15, 23, 42, 0.88) 50%, rgba(15, 23, 42, 0.93) 100%),
+        url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .vignette {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(15, 23, 42, 0.7) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
+  <!-- Background Image -->
+  <div class="bg-journey"></div>
+  <div class="vignette"></div>
+
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-900/30 to-slate-800/50"></div>
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
   </div>

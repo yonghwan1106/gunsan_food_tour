@@ -49,11 +49,33 @@
     .delay-3 { animation-delay: 0.3s; opacity: 0; }
     .delay-4 { animation-delay: 0.4s; opacity: 0; }
     .delay-5 { animation-delay: 0.5s; opacity: 0; }
+    /* Background image - vintage clock/time travel */
+    .bg-time {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.90) 50%, rgba(15, 23, 42, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .vignette {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 20%, rgba(15, 23, 42, 0.8) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
+  <!-- Background Image -->
+  <div class="bg-time"></div>
+  <div class="vignette"></div>
+
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-900/30 to-slate-800/50"></div>
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl"></div>
   </div>
 
