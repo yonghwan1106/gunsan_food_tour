@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드 10 - 협력 체계</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #c4a052 0%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .delay-3 { animation-delay: 0.3s; opacity: 0; }
+  </style>
+</head>
+<body>
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative h-full flex flex-col p-8">
+    <!-- Header -->
+    <header class="text-center mb-8 animate-fade-in-up">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <span class="w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold">04</span>
+        <div class="h-6 w-px bg-amber-500/30"></div>
+        <span class="text-amber-400/70 text-sm tracking-wider">PARTNERSHIP</span>
+      </div>
+      <h2 class="text-4xl font-bold"><span class="gradient-text">협력</span> 체계</h2>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 grid grid-cols-3 gap-6">
+      <!-- Left: Partnership Hub -->
+      <div class="col-span-1 flex flex-col gap-4 animate-fade-in-up delay-1">
+        <div class="bg-gradient-to-br from-amber-950/40 to-slate-900/80 rounded-2xl border border-amber-500/20 p-6 flex-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center">
+              <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">협력업체 현황</h3>
+          </div>
+          <div class="text-center py-6">
+            <div class="text-6xl font-black text-amber-400">30</div>
+            <div class="text-white/50 mt-2">개 협력업체</div>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 rounded-lg bg-slate-800/50">
+              <span class="text-white/70">음식점</span>
+              <span class="text-amber-400 font-bold">15개</span>
+            </div>
+            <div class="flex items-center justify-between p-3 rounded-lg bg-slate-800/50">
+              <span class="text-white/70">체험시설</span>
+              <span class="text-amber-400 font-bold">8개</span>
+            </div>
+            <div class="flex items-center justify-between p-3 rounded-lg bg-slate-800/50">
+              <span class="text-white/70">교통/숙박</span>
+              <span class="text-amber-400 font-bold">7개</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: Partnership Diagram -->
+      <div class="col-span-1 flex flex-col items-center justify-center animate-fade-in-up delay-2">
+        <div class="relative w-full aspect-square max-w-[300px]">
+          <!-- Center -->
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/30 to-amber-600/20 border-2 border-amber-500/50 flex flex-col items-center justify-center" style="filter: drop-shadow(0 0 20px rgba(196, 160, 82, 0.4));">
+              <span class="text-amber-400 text-xs">타임슬립</span>
+              <span class="text-white font-bold text-sm">미식투어</span>
+            </div>
+          </div>
+
+          <!-- Orbiting elements -->
+          <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="w-16 h-16 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+              <svg class="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18"/>
+              </svg>
+            </div>
+          </div>
+          <div class="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+            <div class="w-16 h-16 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
+              <svg class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+            <div class="w-16 h-16 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
+              <svg class="w-8 h-8 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="w-16 h-16 rounded-xl bg-red-500/20 border border-red-500/30 flex items-center justify-center">
+              <svg class="w-8 h-8 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Connection lines -->
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="100" fill="none" stroke="rgba(196, 160, 82, 0.2)" stroke-width="1" stroke-dasharray="5 5"/>
+          </svg>
+        </div>
+
+        <div class="mt-6 text-center">
+          <p class="text-white/60 text-sm">지역 상생 협력 생태계</p>
+        </div>
+      </div>
+
+      <!-- Right: Benefits -->
+      <div class="col-span-1 flex flex-col gap-4 animate-fade-in-up delay-3">
+        <div class="bg-gradient-to-br from-emerald-950/40 to-slate-900/80 rounded-2xl border border-emerald-500/20 p-6 flex-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+              <svg class="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">상생 협력 방안</h3>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-800/50 border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                  <span class="text-emerald-400 text-sm font-bold">1</span>
+                </div>
+                <h4 class="text-white font-semibold">수익 공유 모델</h4>
+              </div>
+              <p class="text-white/50 text-sm ml-11">매출의 일정 비율을 협력업체와 분배</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/50 border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                  <span class="text-emerald-400 text-sm font-bold">2</span>
+                </div>
+                <h4 class="text-white font-semibold">공동 마케팅</h4>
+              </div>
+              <p class="text-white/50 text-sm ml-11">통합 홍보 및 온라인 마케팅 지원</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/50 border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                  <span class="text-emerald-400 text-sm font-bold">3</span>
+                </div>
+                <h4 class="text-white font-semibold">품질 관리</h4>
+              </div>
+              <p class="text-white/50 text-sm ml-11">정기 품질 점검 및 서비스 교육</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/50 border border-white/5">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                  <span class="text-emerald-400 text-sm font-bold">4</span>
+                </div>
+                <h4 class="text-white font-semibold">지역 고용 창출</h4>
+              </div>
+              <p class="text-white/50 text-sm ml-11">지역 주민 우선 채용 및 일자리 확대</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Slide Number -->
+    <div class="absolute bottom-6 right-8 flex items-center gap-2">
+      <span class="text-4xl font-black text-amber-500/30">10</span>
+      <span class="text-white/40 text-sm">/ 15</span>
+    </div>
+  </div>
+</body>
+</html>

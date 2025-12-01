@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드 4 - 문제점 & 솔루션</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #c4a052 0%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .delay-3 { animation-delay: 0.3s; opacity: 0; }
+  </style>
+</head>
+<body>
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800"></div>
+    <div class="absolute top-1/2 left-0 w-1/2 h-full bg-gradient-to-r from-red-500/5 to-transparent"></div>
+    <div class="absolute top-1/2 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/5 to-transparent"></div>
+  </div>
+
+  <div class="relative h-full flex flex-col p-8">
+    <!-- Header -->
+    <header class="flex items-center justify-center gap-4 mb-8 animate-fade-in-up">
+      <h2 class="text-4xl font-bold">
+        <span class="text-red-400">문제점</span>
+        <span class="text-white/40 mx-4">&</span>
+        <span class="gradient-text">솔루션</span>
+      </h2>
+    </header>
+
+    <!-- Main Content - 2 Columns -->
+    <main class="flex-1 grid grid-cols-2 gap-8">
+      <!-- Left: Problems -->
+      <div class="bg-gradient-to-br from-red-950/40 to-slate-900/80 rounded-3xl border border-red-500/20 p-8 animate-fade-in-up delay-1">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
+            <svg class="w-6 h-6 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M15 9l-6 6M9 9l6 6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs text-red-400/70 tracking-wider">PROBLEM</div>
+            <h3 class="text-xl font-bold text-red-400">현재 문제점</h3>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-red-950/30 rounded-xl p-4 border border-red-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">'보는' 관광 위주</h4>
+                <p class="text-white/50 text-sm">사진만 찍고 떠나는 단편적 체험, 깊이 있는 경험 부재</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-950/30 rounded-xl p-4 border border-red-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  <line x1="4" y1="4" x2="20" y2="20" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">스토리텔링 부재</h4>
+                <p class="text-white/50 text-sm">역사와 음식의 연결고리 없음, 개별 콘텐츠 파편화</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-950/30 rounded-xl p-4 border border-red-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">짧은 체류시간</h4>
+                <p class="text-white/50 text-sm">평균 3-4시간, 당일 관광에 그침</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-950/30 rounded-xl p-4 border border-red-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 4v6h-6M1 20v-6h6"/>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">낮은 재방문율</h4>
+                <p class="text-white/50 text-sm">10% 미만, 일회성 방문에 그침</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Solutions -->
+      <div class="bg-gradient-to-br from-emerald-950/40 to-slate-900/80 rounded-3xl border border-emerald-500/20 p-8 animate-fade-in-up delay-2">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+            <svg class="w-6 h-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs text-emerald-400/70 tracking-wider">SOLUTION</div>
+            <h3 class="text-xl font-bold text-emerald-400">타임슬립 미식투어</h3>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-emerald-950/30 rounded-xl p-4 border border-emerald-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">타임슬립 컨셉</h4>
+                <p class="text-white/50 text-sm">1930년대 근대 군산으로 떠나는 시간여행 체험</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-emerald-950/30 rounded-xl p-4 border border-emerald-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">역사 × 미식 결합</h4>
+                <p class="text-white/50 text-sm">근대문화유산과 미식을 하나의 스토리로 연결</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-emerald-950/30 rounded-xl p-4 border border-emerald-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">체계적 코스 설계</h4>
+                <p class="text-white/50 text-sm">3가지 테마 코스로 다양한 니즈 충족</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-emerald-950/30 rounded-xl p-4 border border-emerald-500/10">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">지역 협력 생태계</h4>
+                <p class="text-white/50 text-sm">30개 협력업체와 함께하는 상생 모델</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Center Arrow -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-fade-in-up delay-3">
+      <div class="w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
+        <svg class="w-8 h-8 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Slide Number -->
+    <div class="absolute bottom-6 right-8 flex items-center gap-2">
+      <span class="text-4xl font-black text-amber-500/30">04</span>
+      <span class="text-white/40 text-sm">/ 15</span>
+    </div>
+  </div>
+</body>
+</html>

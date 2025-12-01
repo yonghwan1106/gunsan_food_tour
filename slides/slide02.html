@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드 2 - 개선 버전</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#c4a052',
+            'accent-light': '#d4af37',
+            background: '#0f172a',
+          },
+          fontFamily: {
+            sans: ['Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; }
+
+    .glow-accent {
+      filter: drop-shadow(0 0 20px rgba(196, 160, 82, 0.4));
+    }
+    .glow-red {
+      filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.4));
+    }
+    .card-shine {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 4s ease-in-out infinite;
+    }
+    .bg-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body class="bg-background text-white font-sans bg-pattern">
+
+  <!-- Decorative Background Elements -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+  </div>
+
+  <!-- Full Screen Slide -->
+  <div class="relative w-full h-screen p-6 grid grid-rows-[auto_1fr] gap-4">
+
+    <!-- Header Row -->
+    <div class="flex items-center gap-6 px-4 py-2">
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-background text-xl font-black shadow-lg">01</span>
+          <div class="absolute -inset-1 bg-accent/30 rounded-2xl blur-md -z-10"></div>
+        </div>
+        <div>
+          <span class="text-white/40 text-sm">SECTION</span>
+          <p class="text-white/80 text-lg font-medium">추진배경</p>
+        </div>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-r from-accent/50 via-white/20 to-transparent"></div>
+      <h2 class="text-4xl font-bold bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">군산의 현황과 과제</h2>
+      <div class="h-px flex-1 bg-gradient-to-l from-red-500/50 via-white/20 to-transparent"></div>
+    </div>
+
+    <!-- Main Content - Two Columns -->
+    <div class="grid grid-cols-2 gap-5 min-h-0">
+
+      <!-- Left Column - 강점 -->
+      <div class="relative flex flex-col rounded-3xl overflow-hidden border border-accent/40 shadow-2xl">
+        <!-- Background Image Layer -->
+        <div class="absolute inset-0 opacity-10">
+          <svg viewBox="0 0 400 400" class="w-full h-full">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-accent"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+          </svg>
+        </div>
+
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-accent/5 to-transparent"></div>
+
+        <!-- Column Header -->
+        <div class="relative px-8 py-5 border-b border-accent/30 bg-gradient-to-r from-accent/20 to-transparent backdrop-blur-sm">
+          <div class="flex items-center justify-between">
+            <h3 class="text-2xl font-bold text-accent flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center glow-accent">
+                <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              군산의 강점
+            </h3>
+            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30">
+              <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+              <span class="text-accent text-sm font-medium">STRENGTH</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column Content -->
+        <div class="relative flex-1 p-6 flex flex-col gap-5">
+          <!-- Stat Cards -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Card 1 -->
+            <div class="relative p-5 rounded-2xl bg-black/30 border border-accent/20 backdrop-blur-sm overflow-hidden group hover:border-accent/50 transition-all">
+              <div class="card-shine absolute inset-0 rounded-2xl"></div>
+              <div class="relative">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center mb-4 mx-auto glow-accent">
+                  <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-black text-accent mb-1">47</div>
+                  <div class="text-accent/70 text-sm font-medium">개소</div>
+                  <div class="text-white/40 text-xs mt-2">근대 문화유산</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="relative p-5 rounded-2xl bg-black/30 border border-accent/20 backdrop-blur-sm overflow-hidden group hover:border-accent/50 transition-all">
+              <div class="card-shine absolute inset-0 rounded-2xl"></div>
+              <div class="relative">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center mb-4 mx-auto glow-accent">
+                  <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-black text-accent mb-1">850</div>
+                  <div class="text-accent/70 text-sm font-medium">만명</div>
+                  <div class="text-white/40 text-xs mt-2">연간 관광객</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Highlight Box -->
+          <div class="flex-1 relative p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-transparent border border-accent/20 overflow-hidden">
+            <!-- Decorative Building Illustration -->
+            <div class="absolute right-0 bottom-0 w-48 h-48 opacity-20">
+              <svg viewBox="0 0 100 100" class="w-full h-full text-accent">
+                <rect x="10" y="40" width="25" height="60" fill="currentColor" opacity="0.5"/>
+                <rect x="12" y="45" width="8" height="10" fill="#0f172a"/>
+                <rect x="25" y="45" width="8" height="10" fill="#0f172a"/>
+                <rect x="12" y="60" width="8" height="10" fill="#0f172a"/>
+                <rect x="25" y="60" width="8" height="10" fill="#0f172a"/>
+                <rect x="40" y="20" width="30" height="80" fill="currentColor" opacity="0.7"/>
+                <rect x="45" y="25" width="8" height="10" fill="#0f172a"/>
+                <rect x="57" y="25" width="8" height="10" fill="#0f172a"/>
+                <rect x="45" y="40" width="8" height="10" fill="#0f172a"/>
+                <rect x="57" y="40" width="8" height="10" fill="#0f172a"/>
+                <rect x="45" y="55" width="8" height="10" fill="#0f172a"/>
+                <rect x="57" y="55" width="8" height="10" fill="#0f172a"/>
+                <rect x="75" y="50" width="20" height="50" fill="currentColor" opacity="0.4"/>
+                <rect x="78" y="55" width="6" height="8" fill="#0f172a"/>
+                <rect x="86" y="55" width="6" height="8" fill="#0f172a"/>
+                <rect x="78" y="68" width="6" height="8" fill="#0f172a"/>
+                <rect x="86" y="68" width="6" height="8" fill="#0f172a"/>
+              </svg>
+            </div>
+
+            <div class="relative flex flex-col justify-center h-full">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <span class="text-accent font-semibold">핵심 가치</span>
+              </div>
+              <p class="text-white/80 text-xl leading-relaxed">
+                근대역사의 <span class="text-accent font-bold">보물창고</span>
+              </p>
+              <p class="text-white/60 text-lg mt-2">
+                전국 최다 근대문화유산 보유 도시
+              </p>
+              <div class="flex items-center gap-2 mt-4">
+                <div class="h-1 w-16 rounded-full bg-accent/50"></div>
+                <div class="h-1 w-8 rounded-full bg-accent/30"></div>
+                <div class="h-1 w-4 rounded-full bg-accent/20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - 과제 -->
+      <div class="relative flex flex-col rounded-3xl overflow-hidden border border-red-500/40 shadow-2xl">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <svg viewBox="0 0 400 400" class="w-full h-full">
+            <defs>
+              <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="1" fill="currentColor" class="text-red-500"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dots)"/>
+          </svg>
+        </div>
+
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 via-red-500/5 to-transparent"></div>
+
+        <!-- Column Header -->
+        <div class="relative px-8 py-5 border-b border-red-500/30 bg-gradient-to-r from-red-500/20 to-transparent backdrop-blur-sm">
+          <div class="flex items-center justify-between">
+            <h3 class="text-2xl font-bold text-red-400 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center glow-red">
+                <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+              </div>
+              현재 과제
+            </h3>
+            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30">
+              <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+              <span class="text-red-400 text-sm font-medium">CHALLENGE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column Content -->
+        <div class="relative flex-1 p-6 flex flex-col gap-5">
+          <!-- Stat Cards -->
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Card 1 -->
+            <div class="relative p-5 rounded-2xl bg-black/30 border border-red-500/20 backdrop-blur-sm overflow-hidden group hover:border-red-500/50 transition-all">
+              <div class="card-shine absolute inset-0 rounded-2xl"></div>
+              <div class="relative">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500/30 to-red-500/10 flex items-center justify-center mb-4 mx-auto glow-red">
+                  <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-black text-red-400 mb-1">3-4</div>
+                  <div class="text-red-400/70 text-sm font-medium">시간</div>
+                  <div class="text-white/40 text-xs mt-2">평균 체류시간</div>
+                </div>
+                <!-- Warning indicator -->
+                <div class="absolute top-3 right-3">
+                  <div class="w-3 h-3 rounded-full bg-red-500 animate-ping"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="relative p-5 rounded-2xl bg-black/30 border border-red-500/20 backdrop-blur-sm overflow-hidden group hover:border-red-500/50 transition-all">
+              <div class="card-shine absolute inset-0 rounded-2xl"></div>
+              <div class="relative">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500/30 to-red-500/10 flex items-center justify-center mb-4 mx-auto glow-red">
+                  <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/>
+                  </svg>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-black text-red-400 mb-1">10</div>
+                  <div class="text-red-400/70 text-sm font-medium">%</div>
+                  <div class="text-white/40 text-xs mt-2">재방문율</div>
+                </div>
+                <!-- Warning indicator -->
+                <div class="absolute top-3 right-3">
+                  <div class="w-3 h-3 rounded-full bg-red-500 animate-ping"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem List -->
+          <div class="flex-1 flex flex-col gap-3">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
+              </svg>
+              <span class="text-red-400 font-semibold text-sm">해결해야 할 문제점</span>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-black/30 border border-red-500/20 backdrop-blur-sm hover:bg-red-500/5 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <span class="text-white/90 font-medium">'보는' 관광 위주</span>
+                <p class="text-white/50 text-sm">단편적 체험에 그침</p>
+              </div>
+              <div class="w-2 h-2 rounded-full bg-red-500"></div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-black/30 border border-red-500/20 backdrop-blur-sm hover:bg-red-500/5 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <span class="text-white/90 font-medium">연결고리 부재</span>
+                <p class="text-white/50 text-sm">역사와 음식의 스토리 단절</p>
+              </div>
+              <div class="w-2 h-2 rounded-full bg-red-500"></div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-black/30 border border-red-500/20 backdrop-blur-sm hover:bg-red-500/5 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <span class="text-white/90 font-medium">숙박 연계 미흡</span>
+                <p class="text-white/50 text-sm">당일 관광에 그침</p>
+              </div>
+              <div class="w-2 h-2 rounded-full bg-red-500"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
