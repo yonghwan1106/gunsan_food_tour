@@ -347,25 +347,25 @@ function BackgroundSlide() {
         <h2 className="text-5xl md:text-6xl font-bold leading-tight">군산의 현황과 과제</h2>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
-            className={`relative p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border ${
+            className={`flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border ${
               stat.highlight ? "border-red-500/40" : "border-white/10"
-            } text-center group hover:bg-white/10 transition-all`}
+            } group hover:bg-white/10 transition-all`}
           >
-            <div className={`w-12 h-12 mx-auto mb-4 rounded-xl ${stat.bgColor} flex items-center justify-center`}>
-              <stat.icon className={`w-6 h-6 ${stat.color}`} />
+            <div className={`w-14 h-14 mb-4 rounded-xl ${stat.bgColor} flex items-center justify-center`}>
+              <stat.icon className={`w-7 h-7 ${stat.color}`} />
             </div>
-            <div className={`text-3xl font-black mb-2 ${stat.color}`}>
+            <div className={`text-4xl font-black mb-2 ${stat.color}`}>
               {stat.value}
-              <span className="text-lg font-medium ml-1">{stat.unit}</span>
+              <span className="text-xl font-medium ml-1">{stat.unit}</span>
             </div>
-            <div className="text-white/60 text-sm">{stat.label}</div>
+            <div className="text-white/60 text-base">{stat.label}</div>
           </motion.div>
         ))}
       </div>
