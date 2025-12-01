@@ -347,19 +347,19 @@ function BackgroundSlide() {
         <h2 className="text-5xl md:text-6xl font-bold leading-tight">군산의 현황과 과제</h2>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
-            className={`relative p-6 rounded-3xl bg-white/5 backdrop-blur-sm border ${
+            className={`relative pt-8 pb-6 px-6 rounded-3xl bg-white/5 backdrop-blur-sm border ${
               stat.highlight ? "border-red-500/30" : "border-white/10"
             } text-center group hover:bg-white/10 transition-all`}
           >
-            <div className={`w-12 h-12 mx-auto mb-4 rounded-2xl ${stat.highlight ? "bg-red-500/20" : "bg-accent/20"} flex items-center justify-center`}>
-              <stat.icon className={`w-6 h-6 ${stat.color}`} />
+            <div className={`w-14 h-14 mx-auto mb-5 rounded-2xl ${stat.highlight ? "bg-red-500/20" : "bg-accent/20"} flex items-center justify-center`}>
+              <stat.icon className={`w-7 h-7 ${stat.color}`} />
             </div>
             <div className={`text-4xl font-black mb-3 ${stat.color}`}>
               {stat.value}
