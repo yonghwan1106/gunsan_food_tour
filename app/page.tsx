@@ -374,23 +374,25 @@ function BackgroundSlide() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="p-6 rounded-2xl bg-red-950/30 border border-red-500/30"
+        className="mt-6 p-5 rounded-2xl bg-gradient-to-r from-red-950/50 to-red-900/30 border border-red-500/40"
       >
-        <h3 className="text-lg font-bold text-red-400 mb-5 flex items-center gap-3">
-          <Target className="w-5 h-5" />
-          현재 문제점
-        </h3>
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-8 h-8 rounded-lg bg-red-500/30 flex items-center justify-center">
+            <Target className="w-4 h-4 text-red-400" />
+          </div>
+          <h3 className="text-lg font-bold text-red-400">현재 문제점</h3>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
           {[
             "'보는' 관광 위주의 단편적 체험",
             "역사와 음식의 연결 스토리텔링 부재",
             "숙박 연계 프로그램 미흡",
           ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-red-900/20">
-              <div className="w-7 h-7 rounded-full bg-red-500/30 flex items-center justify-center flex-shrink-0">
-                <span className="text-red-400 text-sm">✕</span>
+            <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-black/30 border border-red-500/20">
+              <div className="w-6 h-6 rounded-full bg-red-500/40 flex items-center justify-center flex-shrink-0">
+                <span className="text-red-300 text-xs font-bold">✕</span>
               </div>
-              <span className="text-white/80 text-sm leading-relaxed">{item}</span>
+              <span className="text-white/90 text-sm leading-relaxed">{item}</span>
             </div>
           ))}
         </div>
